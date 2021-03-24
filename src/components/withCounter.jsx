@@ -1,7 +1,8 @@
 import React from 'react';
 
-const withCounter= (PassedComponent)=>
-    class NewComponent extends React.Component{
+// we pass parameter with the passedcomponent to perform same operation but with different nature or value
+const withCounter= (WrappedComponent, param)=>{
+    class WithCounter extends React.Component{
         constructor(props){
             super(props);
             this.state = {
@@ -10,16 +11,21 @@ const withCounter= (PassedComponent)=>
         }
 
         clickHandler = (e)=>{
-            this.setState((prevState)=>({count:prevState.count+1}));
+            this.setState((prevState)=>({count:prevState.count+param}));
         }
 
+        // Remember the props while calling the component isnot visible in that component rather in HOC so 
+        // always remember to pass the props with spread operator
         render(){
             return(
-                <PassedComponent clickHandle = {this.clickHandler} count= {this.state.count} /> 
+                <WrappedComponent clickHandle = {this.clickHandler} count= {this.state.count} {...this.props}/> 
             )
         }
 
     }
+
+    return WithCounter;
+}
    
 
 

@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <ButtonCounter />
+       <ButtonCounter name="Pravin"/>
        <HoverCounter />
       </header>
     </div>
