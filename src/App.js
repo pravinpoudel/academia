@@ -12,10 +12,10 @@ function App() {
    
     <div className="App">
       <header className="App-header">
-        <ErrorBoundary>
+        {/* <ErrorBoundary> */}
         <FunctionalComponent2 />
          <FunctionalComponent />
-        </ErrorBoundary>
+        {/* </ErrorBoundary> */}
         {/* <StyledDiv> */}
          <ButtonCounter name="Pravin"/>  
         {/* </StyledDiv> */}

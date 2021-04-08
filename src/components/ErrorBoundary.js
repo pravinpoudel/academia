@@ -11,6 +11,7 @@ export default class ErrorBoundary extends React.Component{
     }
 
     componentDidCatch(error, errorInfo){
+        // console.log(errorInfo)
         this.setState({
             error: errorInfo,
             hasError:true
@@ -20,7 +21,7 @@ export default class ErrorBoundary extends React.Component{
     render(){
        
            if(this.state.hasError){
-               return <h1>Error Exists</h1>
+               return <h1>{this.state.error}</h1>
            } 
 
            return this.props.children
