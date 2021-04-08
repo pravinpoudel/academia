@@ -11,6 +11,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
+    "styled-component": "^2.8.0",
+    "styled-components": "^5.2.1",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -39,7 +41,10 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6"
+  },
   "repository": {
     "type": "git",
     "url": "\u0016https://github.com/pravinpoudel/academia.git"
