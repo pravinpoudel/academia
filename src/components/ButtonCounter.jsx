@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import withCounter from "./withCounter"
 
+import styles from "./cssModule/button.module.css"
+
 class ButtonCounter extends Component{
 
     constructor(props){
@@ -9,10 +11,16 @@ class ButtonCounter extends Component{
         this.state={};
     }
 
+
+
     render(){
+
+        const style={
+           
+        }
       
         return(
-            <button className=" btn btn-success" onClick={this.props.clickHandle}> {this.props.name} clicked this {this.props.count} times</button>
+            <button style={style} onClick={this.props.clickHandle}> {this.props.name} didn't clicked this {this.props.count} times</button>
         );
     }
 }
