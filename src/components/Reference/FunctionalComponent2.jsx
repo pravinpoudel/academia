@@ -4,22 +4,43 @@ import React, { useState, useRef, useEffect } from 'react';
 function FunctionalComponent2(props){
 
     const [name, setName] = useState("");
-    const [resource, resourceChange] = useState("");
     const [data, changeData] = useState([]);
 
     const inputRef = useRef(null);
     const prevName = useRef("N/A");
 
+    // componentDidMount and componentDidUpdate
     useEffect(()=>{
         prevName.current = name
     }, [name]);
 
-
+    const [resource, resourceChange] = useState("");
+    //componentDidMount and componentDidUpdate
     useEffect(()=>{
         fetch(`https://jsonplaceholder.typicode.com/${resource}`)
         .then(response=>response.json())
-        .then(data=> changeData(data))
+        .then(data=> { console.log("useeffect is called");changeData(data)})
+
+        return ()=>{console.log("useeffect is returned")}
     }, [resource]);
+
+    useEffect(()=>{
+        console.log("useeffect is called");
+        return ()=>{console.log("useeffect is returned")}
+    }, []);
+    
+    const [width, widthChange] = useState(window.innerWidth);
+    
+    // componentDidMount
+    useEffect(()=>{
+        window.addEventListener("resize", resizeHandler);
+    }, []);
+
+    const resizeHandler = ()=>{
+        widthChange(window.innerWidth);
+    }
+
+
 
 
     const changeName = (event)=>{
@@ -36,6 +57,7 @@ function FunctionalComponent2(props){
         <>
        
         <h1>My previous name is {prevName.current} and current Name is {name}</h1>
+        <span>the width of window is {width}</span>
         <input value={name} onChange = {changeName} ref={inputRef} /> 
 
         <ul className="list-group">
