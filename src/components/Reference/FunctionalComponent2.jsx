@@ -20,7 +20,6 @@ function FunctionalComponent2(props){
         fetch(`https://jsonplaceholder.typicode.com/${resource}`)
         .then(response=>response.json())
         .then(data=> { console.log("useeffect is called");changeData(data)})
-
         return ()=>{console.log("useeffect is returned")}
     }, [resource]);
 

@@ -5,6 +5,7 @@ import HoverCounter from './components/HoverCounter';
 import FunctionalComponent from './components/FunctionalComponent';
 import ErrorBoundary from './components/ErrorBoundary';
 import FunctionalComponent2 from './components/Reference/FunctionalComponent2'
+import Home from "./components/TryComponents/Home"
 // import styled from 'styled-components';
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* <ErrorBoundary> */}
-        <FunctionalComponent2 />
+        <Home />
+        {/* <FunctionalComponent2 /> */}
          <FunctionalComponent />
         {/* </ErrorBoundary> */}
         {/* <StyledDiv> */}
