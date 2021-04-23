@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Modals from "./Portals/Modals"
 
 const FunctionalComponent = (props)=>{
 
@@ -13,8 +14,18 @@ const FunctionalComponent = (props)=>{
             return{ ...prevState, theme: "red"  }
         });
     }
+
+    // Modal
+
+    const [isOpen, openChange] = useState(false);
+
     return(
         <>
+        <Modals isOpen={isOpen} changeHandler = {openChange}>
+          Hello I am here, i am modal 
+        </Modals>
+        <button className="btn btn-warning" onClick={()=>openChange(true)}>Open Modal</button>
+
         <p>{state.theme} Clicked {state.count} times</p>
         <button className="btn btn-primary" name = "count" onClick={handleClick}>Click Me</button>
         <button className="btn btn-danger" name = "theme" onClick={handleTheme}>Click Me</button>

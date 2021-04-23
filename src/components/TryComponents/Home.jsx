@@ -5,6 +5,8 @@ const Home = (props)=>{
 
     let url = "https://jsonplaceholder.typicode.com/posts"
     const {data:datas, isPending, error} = useFetch(url);
+
+    
     return(
         <div className="Home">
             {error && <div>{error}</div>}

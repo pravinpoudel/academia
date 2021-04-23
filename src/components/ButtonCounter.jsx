@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import withCounter from "./withCounter"
+import Rform from "./Utility/Rform";
 
 import styles from "./cssModule/button.module.css"
 
@@ -11,8 +12,6 @@ class ButtonCounter extends Component{
         this.state={};
     }
 
-
-
     render(){
 
         const style={
@@ -20,7 +19,10 @@ class ButtonCounter extends Component{
         }
       
         return(
+            <>
+            <Rform />
             <button style={style} onClick={this.props.clickHandle}> {this.props.name} didn't clicked this {this.props.count} times</button>
+            </>
         );
     }
 }

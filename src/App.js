@@ -5,27 +5,46 @@ import HoverCounter from './components/HoverCounter';
 import FunctionalComponent from './components/FunctionalComponent';
 import ErrorBoundary from './components/ErrorBoundary';
 import FunctionalComponent2 from './components/Reference/FunctionalComponent2'
-import Home from "./components/TryComponents/Home"
-// import styled from 'styled-components';
+import Home from "./components/TryComponents/Home";
+import Modal from "./components/TryComponents/Modal"
+import Modals from "./components/Portals/Modals";
+import Navbar from "./components/NavBar/Navbar"
+import {Route, Link, NavLink, withRouter, Switch} from 'react-router-dom';
 
-function App() {
-  return (
-   
-    <div className="App">
-      <header className="App-header">
-        {/* <ErrorBoundary> */}
-        <Home />
-        {/* <FunctionalComponent2 /> */}
-         <FunctionalComponent />
-        {/* </ErrorBoundary> */}
-        {/* <StyledDiv> */}
-         <ButtonCounter name="Pravin"/>  
-        {/* </StyledDiv> */}
-        <HoverCounter />
-      </header>
-    </div>
-       
-  );
+function App(props) {
+
+    // setTimeout(() => {
+    //     props.history.push("/button")
+    // }, 2000);
+    return (
+        <>
+        <nav className="nav navbar">
+            <h3> Logo </h3>
+            <ul className= "nav-link1">
+                <li className="nav-item1 ">
+                    <NavLink exact to="/">Home</NavLink>
+                </li>
+                <li className="nav-item1 ">
+                    <NavLink to="/button">Button</NavLink>
+                </li>
+                <li className="nav-item1 ">
+                    <NavLink to="/text">Text</NavLink>
+                </li>
+            </ul>
+        </nav>
+
+        <Switch>
+            <Route exact path="/">
+                <Home />
+            </Route>
+            <Route path="/button">
+                <ButtonCounter />
+            </Route>
+            <Route path="/text">
+                <HoverCounter />
+            </Route>
+        </Switch>
+        </>
+    )
 }
-
-export default App;
+export default withRouter(App);
